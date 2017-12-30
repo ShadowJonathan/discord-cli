@@ -4,7 +4,7 @@ package DiscordState
 import (
 	"fmt"
 
-	"github.com/Rivalo/discordgo_cli"
+	"github.com/ShadowJonathan/discordgo_cli"
 )
 
 //!----- Session -----!//
@@ -20,10 +20,15 @@ func NewSession(Username, Password string) *Session {
 
 //Start attaches a discordgo listener to the Sessions and fills it.
 func (Session *Session) Start() error {
-
 	fmt.Printf("*Starting Session...")
+	var dg *discordgo.Session
+	var err error
 
-	dg, err := discordgo.New(Session.Username, Session.Password)
+	if Session.Username == "Bot" {
+		dg, err = discordgo.New(Session.Username + " " + Session.Password)
+	} else {
+		dg, err = discordgo.New(Session.Username, Session.Password)
+	}
 	if err != nil {
 		return err
 	}
