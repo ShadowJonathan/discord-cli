@@ -113,11 +113,6 @@ func (Session *Session) NewState(GuildID string, MessageAmount int) (*State, err
 
 //Update updates the session, this reloads the Guild list
 func (Session *Session) Update() error {
-	UserGuilds, err := Session.DiscordGo.UserGuilds()
-	if err != nil {
-		return err
-	}
-
-	Session.Guilds = UserGuilds
+	Session.Guilds =  Session.DiscordGo.State.Guilds
 	return nil
 }
