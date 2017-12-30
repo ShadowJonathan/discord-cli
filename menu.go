@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/bwmarrin/discordgo"
 	"fmt"
 	"log"
 	"strconv"
@@ -58,7 +59,7 @@ Start:
 	SelectID := 0
 
 	for _, channel := range State.Channels {
-		if channel.Type == "text" {
+		if channel.Type == discordgo.ChannelTypeGuildText {
 			SelectMap[SelectID] = channel.ID
 			Msg(TextMsg, "[%d] %s\n", SelectID, channel.Name)
 			SelectID++
