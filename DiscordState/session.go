@@ -37,12 +37,7 @@ func (Session *Session) Start() error {
 	dg.Open()
 
 	//Retrieve GuildID's from current User
-	UserGuilds, err := dg.UserGuilds()
-	if err != nil {
-		return err
-	}
-
-	Session.Guilds = UserGuilds
+	Session.Guilds = dg.State.Guilds
 
 	Session.DiscordGo = dg
 
