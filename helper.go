@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ShadowJonathan/discordgo_cli"
+	"github.com/bwmarrin/discordgo"
 	"github.com/fatih/color"
 )
 
